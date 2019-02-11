@@ -38,7 +38,7 @@ We'll be grading on five areas:
 ## Technology used
 HTML, CSS, JavaScript
 
-## [Deployed Demo] (https://epic-babbage-0846d5.netlify.com)
+[Deployed Demo] (https://epic-babbage-0846d5.netlify.com)
 
 
 ## Steps to run the finished project in localhost
