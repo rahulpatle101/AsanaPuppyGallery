@@ -11,11 +11,15 @@
   font-size: 62.5%; /* 1rem = 10px, 10px/16px = 62.5% */
 
   box-sizing: border-box;
+  height: 100%;
 }
 
 body {
   margin: 0;
   padding: 0;
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 6rem;
 }
 
 a {
@@ -132,10 +136,10 @@ a {
 .pagination a {
   color: #7c7c7c;
   float: left;
-  padding: 10px 14px;
+  padding: 6px 14px;
   text-decoration: none;
   border-right: 1px solid #CBD0D8;
-  font-size: 2rem;
+  font-size: 1.6rem;
   transition: all .3s;
   -webkit-transition: all .3s;
   -o-transition: all .3s;
@@ -212,6 +216,15 @@ a {
   top: 0;
   left: 0;
   display: block;
+}
+
+.site-footer p {
+  font-size: 1.4rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
 
