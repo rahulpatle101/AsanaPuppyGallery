@@ -16,6 +16,7 @@
     const modalImage = modalWindowRoot.querySelector('modal img');
     const closeIcon = modalWindowRoot.querySelector('modal svg');
 
+
     // Show puppy image in Modal when clicked on image
     gallery.addEventListener('click', function(e) {
         // only show modal with image if clicked on the puppy image 
@@ -48,6 +49,20 @@
         modalWindowRoot.style.display="none";
     });
 
+    // Renderpage function 
+    renderPage = (items ) => {
+        console.log(items)
+
+        let cardMarkup = '';
+        items.forEach(function(dog) {
+            cardMarkup +=  `<card class="puppy-card fade-in">
+                    <img class="pup-image" src='${dog["image"]}' alt="">
+                    </div>
+                    </card>`
+        })
+        document.querySelector('.gallery-container').innerHTML = cardMarkup;
+    }
+
     // Populate images on DOM
     populateGallery = () => {
         // fetch data from galleryData.dogs.json using fetch
@@ -58,7 +73,7 @@
                 // add dog data to galleryDog object and render page
                 galleryData.dogs = data.dogs.map(dog => dog)
                 galleryData.currentPage = 1;
-                console.log(galleryData)
+                renderPage(galleryData.dogs);
             }
         })
         .catch((error) => console.log('Something went went wrong, please try again. Error: ',error));
