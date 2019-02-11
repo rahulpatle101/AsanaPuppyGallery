@@ -49,12 +49,36 @@
         modalWindowRoot.style.display="none";
     });
 
+    // Paginator function accepts 3 parameters: items, currentpage and number of items to show perpage.
+    // source: https://arjunphp.com/can-paginate-array-objects-javascript/
+    Paginator = (items, page, per_page) => {
+
+        const default_page = page || 1;
+        const per_page_val = per_page || 10;
+        const offset = (default_page - 1) * per_page_val;
+
+        const paginatedItems = items.slice(offset).slice(0, per_page_val);
+        const total_pages = Math.ceil(items.length / per_page_val);
+
+        return {
+            page: default_page,
+            per_page: per_page_val,
+            pre_page: page - 1 ? page - 1 : null,
+            next_page: (total_pages > page) ? page + 1 : null,
+            total: items.length,
+            total_pages,
+            data: paginatedItems
+        };
+    }
+    
     // Renderpage function 
-    renderPage = (items ) => {
-        console.log(items)
+    renderPage = (items, page) => {
+        const itemsPerPage = 12
+        const dogObj = Paginator(items, page, itemsPerPage);
+        galleryData.totalPages = dogObj.total_pages;
 
         let cardMarkup = '';
-        items.forEach(function(dog) {
+        dogObj.data.forEach(function(dog) {
             cardMarkup +=  `<card class="puppy-card fade-in">
                     <img class="pup-image" src='${dog["image"]}' alt="">
                     </div>
@@ -73,7 +97,7 @@
                 // add dog data to galleryDog object and render page
                 galleryData.dogs = data.dogs.map(dog => dog)
                 galleryData.currentPage = 1;
-                renderPage(galleryData.dogs);
+                renderPage(galleryData.dogs, galleryData.currentPage);
             }
         })
         .catch((error) => console.log('Something went went wrong, please try again. Error: ',error));
