@@ -38,7 +38,10 @@ We'll be grading on five areas:
 ## Technology used
 HTML, CSS, JavaScript
 
-## Steps to run the finished project
+## [Deployed Demo] (https://epic-babbage-0846d5.netlify.com/)
+
+
+## Steps to run the finished project in localhost
 - Download the live-server from npm package manager
 - Run live-server in the project directory
 - Open the localhost provided by live-serve in your browser
