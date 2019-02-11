@@ -31,3 +31,19 @@ We'll be grading on five areas:
 "Starting next month, we'll be partnering with a shelter that has 2000 pets available for adoption. We need this page to be able to handle that many listings."
 
 "Most people find out about us from internet searches. We need this page to appear towards the top of search results."
+
+
+## Asana Take home exercise submission notes
+
+## Technology used
+HTML, CSS, JavaScript
+
+## Steps to run the finished project
+- Download the live-server from npm package manager
+- Run live-server in the project directory
+- Open the localhost provided by live-serve in your browser
+
+## Choice of grading
+Growth Focus & UI/UX
+
+

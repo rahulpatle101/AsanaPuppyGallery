@@ -168,7 +168,9 @@
                 renderGallery(galleryData.dogs, galleryData.currentPage);
             }
         })
-        .catch((error) => console.log('Something went went wrong, please try again. Error: ',error));
+        .catch((error => function()  {
+            console.log('Something went went wrong, please try again. Error: ',error)
+        }));
     }
 
     // Initialize the page with populate gallery
