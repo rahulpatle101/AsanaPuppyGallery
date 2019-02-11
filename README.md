@@ -47,6 +47,6 @@ HTML, CSS, JavaScript
 - Open the localhost provided by live-serve in your browser
 
 ## Choice of grading
-Growth Focus & UI/UX
+Growth Focus
 
 
