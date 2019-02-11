@@ -77,6 +77,20 @@
         const dogObj = Paginator(items, page, itemsPerPage);
         galleryData.totalPages = dogObj.total_pages;
 
+        // Create pagination based on total data entries
+        let pageNumberMarkup = '';
+
+        // Only show Pagination when total items are more the desired items per page else hide pagination
+        if (dogObj.total > itemsPerPage) {
+            for (let i = 1; i <= galleryData.totalPages; i++) {
+                pageNumberMarkup += `<a href="#" class="pagination-page" data-page-number=${i}>${i}</a>`
+            }
+
+            document.querySelector('.pagination-pages').innerHTML = pageNumberMarkup;
+        } else {
+            paginationContainer.style.display = 'none';
+        }
+
         let cardMarkup = '';
         dogObj.data.forEach(function(dog) {
             cardMarkup +=  `<card class="puppy-card fade-in">
