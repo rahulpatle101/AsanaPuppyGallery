@@ -64,15 +64,15 @@
             // remove active class from other page number
             anchorDiv.childNodes.forEach(e => e.classList.remove('active'));
             
-            // convert the value of the data-page-number value to int and pass to renderPage
-            renderPage(galleryData.dogs, parseInt(e.target.getAttribute('data-page-number')))
+            // convert the value of the data-page-number value to int and pass to renderGallery
+            renderGallery(galleryData.dogs, parseInt(e.target.getAttribute('data-page-number')))
         }
         
         // If Prev button clicked
         if (e.target.className === 'pagination-previous') {
             // only render Previous page content if there exist one by checking current page > 1 else do nothing
             if(galleryData.currentPage > 1) {
-                renderPage(galleryData.dogs, galleryData.currentPage - 1)
+                renderGallery(galleryData.dogs, galleryData.currentPage - 1)
             } else {
                 return
             }
@@ -82,7 +82,7 @@
         if (e.target.className === 'pagination-next') {
             // only render Next page content if there exist one by checking current page < 1 else do nothing
             if(galleryData.currentPage < galleryData.totalPages) {
-                renderPage(galleryData.dogs, galleryData.currentPage + 1)
+                renderGallery(galleryData.dogs, galleryData.currentPage + 1)
             } else {
                 return
             }
@@ -124,8 +124,8 @@
         };
     }
     
-    // Renderpage function 
-    renderPage = (items, page) => {
+    // RenderGallery function 
+    renderGallery = (items, page) => {
         const itemsPerPage = 12
         const dogObj = Paginator(items, page, itemsPerPage);
         galleryData.totalPages = dogObj.total_pages;
@@ -156,7 +156,7 @@
     }
 
     // Populate images on DOM
-    populateGallery = () => {
+    fetchPuppyData = () => {
         // fetch data from galleryData.dogs.json using fetch
         fetch('assets/data/dogs.json')
         .then((response) => response.json())
@@ -165,13 +165,13 @@
                 // add dog data to galleryDog object and render page
                 galleryData.dogs = data.dogs.map(dog => dog)
                 galleryData.currentPage = 1;
-                renderPage(galleryData.dogs, galleryData.currentPage);
+                renderGallery(galleryData.dogs, galleryData.currentPage);
             }
         })
         .catch((error) => console.log('Something went went wrong, please try again. Error: ',error));
     }
 
     // Initialize the page with populate gallery
-    populateGallery();
+    fetchPuppyData();
 
 })();
