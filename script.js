@@ -10,7 +10,7 @@
     const gallery = document.querySelector('.gallery-container');
 
     // Modal DOM element
-    const modalWindowRoot = document.querySelector('modal .modal-window');
+    const modalWindowRoot = document.querySelector('modal.modal-window');
     const modalImageDiv = modalWindowRoot.querySelector('modal .image-container');
     const modalOverlay = modalWindowRoot.querySelector('modal .modal-window-overlay')
     const modalImage = modalWindowRoot.querySelector('modal img');
