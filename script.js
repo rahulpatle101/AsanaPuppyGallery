@@ -16,6 +16,11 @@
     const modalImage = modalWindowRoot.querySelector('modal img');
     const closeIcon = modalWindowRoot.querySelector('modal svg');
 
+    // Pagination DOM element
+    const paginationContainer = document.querySelector('.pagination-container');
+    const pageElement = paginationContainer.querySelector('.pagination');
+    const anchorDiv = paginationContainer.querySelector('.pagination .pagination-pages');
+
 
     // Show puppy image in Modal when clicked on image
     gallery.addEventListener('click', function(e) {
@@ -48,6 +53,54 @@
     modalOverlay.addEventListener('click', function() {
         modalWindowRoot.style.display="none";
     });
+
+    // Add pagination functionality Loading Pagination
+    pageElement.addEventListener('click', function(e) {
+        // stop default anchor click event behavior
+        e.preventDefault()
+
+        // If Page Number button clicked
+        if (e.target.className === 'pagination-page') {
+            // remove active class from other page number
+            anchorDiv.childNodes.forEach(e => e.classList.remove('active'));
+            
+            // convert the value of the data-page-number value to int and pass to renderPage
+            renderPage(galleryData.dogs, parseInt(e.target.getAttribute('data-page-number')))
+        }
+        
+        // If Prev button clicked
+        if (e.target.className === 'pagination-previous') {
+            // only render Previous page content if there exist one by checking current page > 1 else do nothing
+            if(galleryData.currentPage > 1) {
+                renderPage(galleryData.dogs, galleryData.currentPage - 1)
+            } else {
+                return
+            }
+        }
+
+        // If Next button clicked
+        if (e.target.className === 'pagination-next') {
+            // only render Next page content if there exist one by checking current page < 1 else do nothing
+            if(galleryData.currentPage < galleryData.totalPages) {
+                renderPage(galleryData.dogs, galleryData.currentPage + 1)
+            } else {
+                return
+            }
+        }
+
+    });
+
+
+    // Update Page updates the active page classname and curent page in gallery data object
+    updatePage = (page) => {
+        anchorDiv.childNodes.forEach(e => e.classList.remove('page-active'));
+        anchorDiv.childNodes.forEach(el => {
+            if (el.innerHTML == page) {
+                el.classList.add('page-active')
+            }
+        });
+        galleryData.currentPage = page;
+    }
 
     // Paginator function accepts 3 parameters: items, currentpage and number of items to show perpage.
     // source: https://arjunphp.com/can-paginate-array-objects-javascript/
@@ -99,6 +152,7 @@
                     </card>`
         })
         document.querySelector('.gallery-container').innerHTML = cardMarkup;
+        updatePage(page);
     }
 
     // Populate images on DOM
