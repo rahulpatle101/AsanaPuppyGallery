@@ -1,1 +1,46 @@
-<!-- Put your final HTML here -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+        <link rel="stylesheet" href="assets/styles/site.css">
+        <!-- To speed up page -->
+        <script defer src="script.js"></script>
+        <title>Puppy Gallery</title>
+    </head>
+    <body>
+        <header class="site-header">
+            <h1>Puppy image gallery</h1>
+            <blockquote class="site-header__quote">
+                <p>A dog will teach you unconditional love. If you can have that in your life, things won't be too bad.</p>
+                <cite>&mdash;Robert Wagner</cite>
+            </blockquote>
+        </header>
+        <gallery class="gallery-container fade-in">
+            <!-- Gallery container for puppy images -->
+        </gallery>
+        <!-- Pagination container -->
+        <pagination class="pagination-container fade-in">
+            <div class="pagination">
+                <a class="pagination-previous" href="#">Previous</a>
+                <div class="pagination-pages"></div>
+                <a class="pagination-next" href="#">Next</a>
+            </div>
+        </pagination>
+        <!-- Modal container -->
+        <modal>
+            <div class="modal-window">
+                <!-- Background Faded container -->
+                <div class="modal-window-overlay"></div>
+                <div class="image-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 15.642 15.642" enable-background="new 0 0 15.642 15.642" width="10px" height="10px">
+                        <path fill-rule="evenodd" d="M8.882,7.821l6.541-6.541c0.293-0.293,0.293-0.768,0-1.061  c-0.293-0.293-0.768-0.293-1.061,0L7.821,6.76L1.28,0.22c-0.293-0.293-0.768-0.293-1.061,0c-0.293,0.293-0.293,0.768,0,1.061  l6.541,6.541L0.22,14.362c-0.293,0.293-0.293,0.768,0,1.061c0.147,0.146,0.338,0.22,0.53,0.22s0.384-0.073,0.53-0.22l6.541-6.541  l6.541,6.541c0.147,0.146,0.338,0.22,0.53,0.22c0.192,0,0.384-0.073,0.53-0.22c0.293-0.293,0.293-0.768,0-1.061L8.882,7.821z" fill="#FFFFFF"/>
+                    </svg>
+                    <img src="">
+                </div>
+            </div>
+        </modal>
+    </body>
+</html>
